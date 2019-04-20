@@ -45,10 +45,10 @@ public class JsonUtils {
                  **/
 
                 JSONObject name = sandwichJson.getJSONObject(NAME);
-                mSandwich.setMainName(name.getString(MAIN_NAME));
-                mSandwich.setPlaceOfOrigin(sandwichJson.getString(PLACE_OF_ORIGIN));
-                mSandwich.setImage(sandwichJson.getString(IMAGE));
-                mSandwich.setDescription(sandwichJson.getString(DESCRIPTION));
+                mSandwich.setMainName(name.optString(MAIN_NAME));
+                mSandwich.setPlaceOfOrigin(sandwichJson.optString(PLACE_OF_ORIGIN));
+                mSandwich.setImage(sandwichJson.optString(IMAGE));
+                mSandwich.setDescription(sandwichJson.optString(DESCRIPTION));
 
                 Log.v("dollar","name= :" + mSandwich.getDescription());
 
@@ -59,7 +59,7 @@ public class JsonUtils {
                 List<String> AlsoKnownAsList= new ArrayList<>();
                 for(int i=0;i<alsoKnownAs.length();i++)
                 {
-                    String Aas = alsoKnownAs.getString(i);
+                    String Aas = alsoKnownAs.optString(i);
                 AlsoKnownAsList.add(Aas);
                 }
 
@@ -69,7 +69,7 @@ public class JsonUtils {
 
                 for(int x=0;x<ingred.length();x++)
                 {
-                    String ing = ingred.getString(x);
+                    String ing = ingred.optString(x);
                     IngredientsList.add(ing);
                 }
 
